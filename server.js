@@ -13,6 +13,8 @@ let mongoDBUsername = encodeURIComponent(process.env.MONGODB_USERNAME);
 let mongoDBPassword = encodeURIComponent(process.env.MONGODB_PASSWORD);
 let mongoDBUri = `mongodb+srv://${mongoDBUsername}:${mongoDBPassword}@cluster0.x4wqlpw.mongodb.net/?retryWrites=true&w=majority`;
 
+const port = process.env.PORT || 5000;
+
 mongoose.set('strictQuery', false);
 mongoose.connect(
   mongoDBUri,
@@ -26,8 +28,6 @@ mongoose.connect(
   app.listen(port, () => console.log('Server up and running on port ' + port));
 })
 .catch(err => console.log(err));
-
-const port = process.env.PORT || 5000;
 
 let Vote = require("./models/vote");
 
