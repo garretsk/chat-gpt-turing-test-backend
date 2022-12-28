@@ -5,7 +5,7 @@ let app = express();
 const cors = require("cors");
 
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: "https://chat-gpt-turing-test.vercel.app/" }));
 
 require("dotenv").config();
 
