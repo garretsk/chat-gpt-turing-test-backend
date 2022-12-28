@@ -50,7 +50,6 @@ app.post("/vote/:prompt", async function(req, res) {
 
 ///////////////////////////// GET /////////////////////////////
 app.get("/vote/:prompt", async function(req, res) {
-  console.log("inside the get func")///TEMP
 
   const optionOneChatGPTGeneratedCount = await Vote.countDocuments({ 
     promptNumber: req.params.prompt,
@@ -61,8 +60,6 @@ app.get("/vote/:prompt", async function(req, res) {
     promptNumber: req.params.prompt,
     whichOptionChatGPTGenerated: 2
   });
-
-  console.log("got counts " + optionOneChatGPTGeneratedCount + " and " + optionTwoChatGPTGeneratedCount)///TEMP
 
   res.json({optionOneChatGPTGeneratedCount: optionOneChatGPTGeneratedCount, optionTwoChatGPTGeneratedCount: optionTwoChatGPTGeneratedCount});
 });
